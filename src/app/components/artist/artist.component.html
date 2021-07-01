@@ -1,0 +1,63 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<!---
+<div  class="card-artist mx-auto mt-5" style="max-width: 50%;">
+    <div class="row g-5">
+      <div class="col-md-3">
+        <img [src]="artist.images | noimage" class="img-thumbnail img-circle m-3" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h1 class="card-title card-artis-h1">{{artist.name}}</h1>
+          <p class="card-text">
+              <a [href]="artist.external_urls.spotify" target="blank">Artist Page</a>
+          </p>
+          <button class="btn btn-outline-success"  routerLink="/search">Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  --->
+  <div class="card mb-3 card-artist">
+    <img [src]="artist.images | noimage" class="card-img-top  img-circle mx-auto mt-3" alt="...">
+    <div class="card-body">
+      <h1 class="card-title card-artis-h1 text-center">{{artist.name}}</h1>
+      <p class="card-text text-center">
+        <a [href]="artist.external_urls.spotify" target="blank">Artist Page</a>
+    </p>
+    <button class="btn btn-outline-success mx-auto  d-block btn-lg"  routerLink="/search">Back</button>
+    </div>
+    
+  </div>
+
+  
+
+  <div class="row m-5 ">
+    <div class="col">
+      <table class="table  r card-artist" >
+        <thead>
+          <tr>
+            <th scope="col">Photo</th>
+            <th scope="col">Album</th>
+            <th scope="col">Track</th>
+            <th scope="col">Preview</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+          <tr *ngFor="let track of topTracks">
+            <th scope="row">
+              <img [src]="track.album.images | noimage" class="img-thumb">
+            </th>
+            <td>{{track.album.name}}</td>
+            <td>{{track.name}}</td>
+            <td>
+              <audio [src]="track.preview_url" controls></audio>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  
